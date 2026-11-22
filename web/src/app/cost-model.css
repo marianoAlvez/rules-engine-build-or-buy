@@ -1,0 +1,94 @@
+:host {
+  display: block;
+}
+.cost-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(9.75rem, 100%), 1fr));
+  gap: 0.45rem 1rem;
+  margin-block: 1.5rem 2rem;
+}
+.cost-field {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  align-content: start;
+  min-width: 0;
+}
+.cost-field label {
+  align-self: start;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.cost-field input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 2.75rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #a998a2;
+  border-radius: 3px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.cost-field .unit {
+  color: var(--muted);
+  font-size: .81rem;
+}
+.cost-field input[aria-invalid='true'] {
+  border-color: var(--rose);
+}
+.field-error {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--rose);
+  font-size: 0.84rem;
+}
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-block: 1px solid var(--line);
+  background: #f3ede5;
+}
+.summary > div {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  gap: 0.3rem;
+  padding: 0.85rem 1.25rem;
+  min-width: 0;
+}
+.summary > div + div {
+  border-inline-start: 1px solid var(--line);
+}
+.summary dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.summary dd {
+  margin: 0;
+  font:
+    600 clamp(1.2rem, 2.6vw, 1.6rem)/1.25 Georgia,
+    serif;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.formula {
+  margin: 1rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+@media (max-width: 720px) {
+  .cost-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 0.5rem;
+  }
+  .cost-field:nth-child(n + 3) label {
+    margin-block-start: 0.55rem;
+  }
+  .summary > div {
+    padding-inline: 0.75rem;
+  }
+}

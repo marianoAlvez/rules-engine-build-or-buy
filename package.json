@@ -1,0 +1,35 @@
+{
+  "name": "rules-engine-build-or-buy",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "build:api": "tsc -p api/tsconfig.json",
+    "build:web": "npm run build --workspace rules-console",
+    "build": "npm run build:api && npm run build:web",
+    "start": "node dist/api/main.js",
+    "test": "npm run build:api && node --test tests/*.test.cjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:layout": "node tests/layout.mjs",
+    "test:ui": "npm run test:ci --workspace rules-console"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "~7.8.2",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/express": "^5.0.0",
+    "playwright": "1.65.1",
+    "typescript": "~6.0.2"
+  }
+}

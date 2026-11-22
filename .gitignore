@@ -1,0 +1,8 @@
+node_modules/
+.angular/
+dist/
+web/dist/
+web/.angular/
+.var/
+*.log
+coverage/

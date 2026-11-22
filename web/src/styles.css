@@ -1,0 +1,414 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  color-scheme: light;
+  --ink: #2e252b;
+  --plum: #412736;
+  --rose: #8e3a59;
+  --paper: #faf7f1;
+  --line: #cfc6bb;
+  --muted: #62565d;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    16px/1.5 'Segoe UI',
+    Arial,
+    sans-serif;
+}
+.frame {
+  width: min(1140px, 90%);
+  margin: auto;
+}
+.mast {
+  background: var(--plum);
+  color: #fff7e8;
+}
+.mast-inner {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 0.84rem;
+}
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.mark {
+  background: #f3caf0;
+  color: var(--plum);
+  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  font:
+    bold 12px/26px Georgia,
+    serif;
+}
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 42px 0 27px;
+  gap: 25px;
+}
+.kicker,
+.ticket-top,
+.stamp,
+.sequence {
+  font:
+    650 0.73rem/1.5 Consolas,
+    monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.kicker {
+  color: var(--rose);
+  margin: 0 0 8px;
+}
+.intro h1,
+h2,
+h3 {
+  font-family: Georgia, Cambria, serif;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.intro h1 {
+  font-size: clamp(3.25rem, 6vw, 5.6rem);
+  font-weight: normal;
+  margin: 0;
+}
+.intro h1 span {
+  color: var(--rose);
+}
+.lead {
+  color: var(--muted);
+  margin: 0 0 5px;
+  font-size: 1.06rem;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+button:focus-visible,
+input:focus-visible,
+.table-wrap:focus-visible {
+  outline: 3px solid #a44074;
+  outline-offset: 4px;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+nav {
+  display: flex;
+  gap: clamp(10px, 3vw, 36px);
+  border-block: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.navbtn {
+  border: 0;
+  background: none;
+  padding: 14px 2px 12px;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+.navbtn[aria-pressed='true'] {
+  border-color: var(--rose);
+  color: var(--plum);
+}
+small {
+  font:
+    12px Consolas,
+    monospace;
+  padding: 2px 5px;
+  background: #ebe1e3;
+  margin-left: 6px;
+  border-radius: 3px;
+}
+.work {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.82fr);
+  gap: clamp(24px, 6vw, 96px);
+  align-items: start;
+  padding: 36px 0 12px;
+}
+.experiment h2,
+.panel h2 {
+  font-size: clamp(2rem, 3.3vw, 3.1rem);
+  font-weight: normal;
+  margin: 12px 0 16px;
+}
+.description,
+.panel > p {
+  max-width: 64ch;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 21px 0 25px;
+}
+.timeline li {
+  border-top: 2px solid var(--line);
+  position: relative;
+  padding-top: 10px;
+}
+.timeline li:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--paper);
+  border: 1px solid #786570;
+}
+.timeline .done:before {
+  background: var(--plum);
+}
+.timeline b,
+.timeline span {
+  display: block;
+}
+.timeline b {
+  font:
+    600 1rem/1.5 Consolas,
+    monospace;
+}
+.timeline span,
+.hint,
+.notice,
+footer,
+.ticket-caption {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.hint {
+  margin: 8px 0 10px;
+}
+.primary,
+.minor,
+.text-button {
+  min-height: 44px;
+  padding: 9px 15px;
+}
+.primary {
+  background: var(--plum);
+  color: white;
+  border: 1px solid var(--plum);
+  border-radius: 4px;
+  font-weight: 650;
+}
+.primary span {
+  margin-left: 15px;
+}
+.primary:hover {
+  background: #65394f;
+}
+.minor,
+.text-button {
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  background: transparent;
+}
+.ticket {
+  background: #f3e8da;
+  border: 1px solid #cbb9a7;
+  padding: 22px 26px 17px;
+  box-shadow: 5px 5px 0 #e5dcd0;
+  position: relative;
+}
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #a08981;
+  padding-bottom: 12px;
+}
+.ticket-caption {
+  margin: 17px 0 0;
+}
+.price {
+  font:
+    normal clamp(3.4rem, 5vw, 5rem)/1.12 Georgia,
+    serif;
+  color: var(--plum);
+}
+.ticket dl {
+  margin: 15px 0;
+}
+.ticket dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #d9cbbd;
+}
+.ticket dd {
+  font-weight: 650;
+  margin: 0;
+}
+.stamp {
+  display: inline-block;
+  border: 1px solid currentColor;
+  color: #4e5148;
+  padding: 4px 7px;
+  margin: 3px 0;
+}
+.blocked,
+.fail {
+  color: #882950;
+}
+.panel {
+  padding: 27px 0 12px;
+}
+.panel h3,
+.new-order h3 {
+  font-size: 1.5rem;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+caption {
+  text-align: left;
+  padding: 8px 0;
+  color: var(--muted);
+}
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+thead {
+  background: #eee6df;
+}
+.numeric {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.fail {
+  background: #f5e3e7;
+}
+.journal {
+  list-style: none;
+  padding: 0;
+}
+.journal li {
+  display: grid;
+  grid-template-columns: 2.5ch minmax(0, 1fr);
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+}
+.journal p {
+  margin: 2px 0;
+}
+.sequence {
+  color: var(--rose);
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+.notice {
+  margin: 12px 0;
+}
+.notice:empty {
+  margin: 0;
+}
+.new-order,
+.error {
+  padding: 14px 20px;
+  background: #efe6ec;
+}
+.new-order h3,
+.new-order p {
+  margin: 5px 0;
+}
+.text-button {
+  color: var(--plum);
+  white-space: nowrap;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  gap: 16px;
+  padding: 8px 0 28px;
+}
+.error {
+  margin: 10px 0;
+}
+.error button {
+  margin-left: 10px;
+}
+@media (max-width: 720px) {
+  .frame {
+    width: 92%;
+  }
+  .intro {
+    display: block;
+    padding: 27px 0 18px;
+  }
+  .lead {
+    margin: 12px 0 0;
+  }
+  .lead br {
+    display: none;
+  }
+  .work {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 24px;
+  }
+  .ticket {
+    padding: 15px 20px;
+  }
+  .navbtn {
+    font-size: 0.88rem;
+  }
+  .mast-inner {
+    font-size: 0.76rem;
+  }
+  nav {
+    gap: 10px;
+  }
+  .minor {
+    padding-inline: 6px;
+  }
+  .table-wrap table {
+    font-size: 0.85rem;
+  }
+  td,
+  th {
+    padding: 7px 4px;
+  }
+  .stamp {
+    font-size: 0.65rem;
+  }
+  footer {
+    align-items: flex-start;
+  }
+  .intro h1 {
+    line-height: 1.05;
+  }
+}

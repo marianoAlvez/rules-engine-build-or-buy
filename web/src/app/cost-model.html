@@ -1,0 +1,46 @@
+<h2>Comprar o mantener el motor</h2>
+<p class="description">
+  Compará el costo de las dos opciones a 36 meses. Los importes están expresados en USD ficticios.
+</p>
+<div class="cost-grid">
+  @for (item of inputs; track item.key) {
+    @let error = invalid(values()[item.key]);
+    <div class="cost-field">
+      <label [for]="'cost-' + item.key">{{ item.label }}</label>
+      <span class="unit" [id]="'unit-' + item.key">{{ item.unit }}</span>
+      <div>
+        <input
+          [id]="'cost-' + item.key"
+          type="number"
+          min="0"
+          max="1000000"
+          step="any"
+          required
+          [value]="values()[item.key]"
+          (input)="update(item.key, $event)"
+          [attr.aria-invalid]="error ? 'true' : null"
+          [attr.aria-describedby]="'unit-' + item.key + (error ? ' error-' + item.key : '')"
+        />
+        @if (error) {
+          <span class="field-error" [id]="'error-' + item.key"
+            >Ingresá un número entre 0 y 1.000.000.</span
+          >
+        }
+      </div>
+    </div>
+  }
+</div>
+<dl class="summary" aria-label="Costo estimado a 36 meses" aria-live="polite">
+  <div>
+    <dt>Proveedor + ensayo de salida</dt>
+    <dd>{{ totals() ? 'USD ' + totals()!.buy : '—' }}</dd>
+  </div>
+  <div>
+    <dt>Motor propio</dt>
+    <dd>{{ totals() ? 'USD ' + totals()!.build : '—' }}</dd>
+  </div>
+</dl>
+<p class="formula">
+  Proveedor = tarifa × volumen × 36 + ensayo de salida.<br />
+  Motor propio = construcción inicial + guardia mensual × 36.
+</p>
